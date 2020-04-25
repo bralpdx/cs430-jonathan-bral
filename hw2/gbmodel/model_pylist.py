@@ -17,14 +17,14 @@ class model(Model):
         """
         return self.guestentries
 
-    def insert(self, name, email, message):
+    def insert(self, name, phone, review):
         """
         Appends a new list of values representing new message into guestentries
         :param name: String
-        :param email: String
-        :param message: String
+        :param phone: String
+        :param review: String
         :return: True
         """
-        params = [name, email, date.today(), message]
+        params = [name, phone, date.today(), review]
         self.guestentries.append(params)
         return True

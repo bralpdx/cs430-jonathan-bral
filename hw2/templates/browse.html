@@ -3,9 +3,9 @@
     <h2>Cart List</h2>
     {% for entry in entries %}
         <p class=entry>
-            {{ entry.name }} &lt;{{ entry.email }}&gt;
+            {{ entry.name }} &lt;{{ entry.phone }}&gt;
 	    <br>signed on {{ entry.signed_on }}<br>
-	    {{ entry.message }}
+	    {{ entry.review }}
         </p>
     {% endfor %}
     <form action="{{ url_for('index')}}">
