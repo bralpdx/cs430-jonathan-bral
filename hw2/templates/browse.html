@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Cart List</h2>
+    {% for entry in entries %}
+        <p class=entry>
+            {{ entry.name }} &lt;{{ entry.email }}&gt;
+	    <br>signed on {{ entry.signed_on }}<br>
+	    {{ entry.message }}
+        </p>
+    {% endfor %}
+    <form action="{{ url_for('index')}}">
+	<p><input type=submit value='Return to homepage'></p>
+    </form>
+    <form action="{{ url_for('form')}}">
+	<p><input type=submit value='Submit a cart'></p>
+    </form>
+
+{% endblock %}

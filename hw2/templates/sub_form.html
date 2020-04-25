@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Submit A Cart</h2>
+    <form action="{{ url_for('submit') }}" method=post>
+	<p class="heading">Name: <input type=text name=name>
+	<p class="heading">Email: <input type=text name=email>
+        <p class="heading">Message:
+	<textarea rows=5 cols=50 name=message></textarea></p>
+	<p><input type=submit value=Submit></p>
+    </form>
+    <form action="{{ url_for('browse') }}">
+	<p><input type=submit value='Return to cart list'></p>
+    </form>
+
+{% endblock %}
