@@ -2,17 +2,35 @@
 {% block content %}
     <h2>Cart List</h2>
     {% for entry in entries %}
-        <p class=entry>
-            {{ entry.name }} &lt;{{ entry.phone }}&gt;
-	    <br>signed on {{ entry.signed_on }}<br>
-	    {{ entry.review }}
+        <p class="entry">
+	<p>
+		{{ entry.name }}
+	</p>
+	<div>
+	    <span>Address</span>
+	    <div id='address'>
+	    	{{ entry.street }}
+	    	{{ entry.city }}
+	    	{{ entry.state }}
+	    	{{ entry.zipcode }}
+	    </div><br>
+
+	</div>
+	    <div>
+		    Phone: {{ entry.phone }}<br>
+	    </div>
+	    <div>
+		    <br>Review:
+		    <br>{{ entry.review }}<br>
+	    </div>
+	    <br>Date Posted {{ entry.posted_on }}
         </p>
     {% endfor %}
-    <form action="{{ url_for('index')}}">
-	<p><input type=submit value='Return to homepage'></p>
+    <form id='returnhome' action="{{ url_for('index')}}">
+	<input type=submit value='Return to homepage'>
     </form>
-    <form action="{{ url_for('form')}}">
-	<p><input type=submit value='Submit a cart'></p>
+    <form id='cartsubmit' action="{{ url_for('form')}}">
+	<input type=submit value='Submit a cart'>
     </form>
 
 {% endblock %}
