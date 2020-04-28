@@ -12,5 +12,7 @@ class Submit(MethodView):
         model.insert(
                 request.form['name'], request.form['street'],
                 request.form['city'], request.form['state'],
-                request.form['zipcode'], request.form['phone'], request.form['review'])
+                request.form['zipcode'], request.form['hours'],
+                request.form['phone'], request.form['rating'],
+                request.form['review'])
         return redirect(url_for('form'))

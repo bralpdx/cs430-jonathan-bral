@@ -1,11 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h2>PDX Food Carts</h2>
-    <form action="{{ url_for('browse') }}">
-	<p><input type=submit value=Browse></p>
-    </form>
-    <form action="{{ url_for('form') }}">
-	<p><input type=submit value='Submit A Cart'></p>
-    </form>
+    <h2>PDX Carthub</h2>
+    <div class="form-inline">
+        <form action="{{ url_for('browse') }}">
+	    <input type=submit value=Browse>
+        </form>
+        <form action="{{ url_for('form') }}">
+  	    <input type=submit value='Submit A Cart'>
+        </form>
+    </div>
 
 {% endblock %}

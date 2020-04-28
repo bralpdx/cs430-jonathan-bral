@@ -1,8 +1,10 @@
 body       { font-family: "Helvetica", sans-serif; font-size: 20px; color: #008303; }
-a, h1, h2  { color: #00008F; }
+a, h1, h2  { color: #ffffff; background: #5e5e5e; }
 form       { margin:.1em auto; padding:.1em; width: 400px; border: 1px }
 form#cartsubmit { margin:.1em auto; padding:.1em; width: 400px; border: 1px; display:inline; }
 form#returnhome { margin:.1em auto; padding:.1em; width: 1000px; border: 1px; display:inline; }
+.user-review    { font-size: 16px; color: #00235c; }
+.form-inline    { display:inline; float:left; }
 .address   { display:inline; }
 .heading   { font-weight: bold; }
 .page      { margin:.1em auto; padding:.1em; width: 504px;  }

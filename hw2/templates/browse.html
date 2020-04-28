@@ -14,14 +14,24 @@
 	    	{{ entry.state }}
 	    	{{ entry.zipcode }}
 	    </div><br>
+	    <div>
+		    Hours: {{ entry.hours }}<br>
+	    </div>
 
 	</div>
 	    <div>
 		    Phone: {{ entry.phone }}<br>
 	    </div>
+
+	    <div>
+		    <br>Rating: {{ entry.rating }}<br>
+	    </div>
+
 	    <div>
 		    <br>Review:
-		    <br>{{ entry.review }}<br>
+		    <div class="user-review">
+		    {{ entry.review }}<br>
+		    </div>
 	    </div>
 	    <br>Date Posted {{ entry.posted_on }}
         </p>
