@@ -23,13 +23,13 @@ class model(Model):
             cursor.execute(
                     "create table cartlist (name text, street text, city text,"
                     " state text, zipcode text, hours text, phone text,"
-                    " rating text, review, posted_on date)")
+                    " rating text, review, foodtype text, posted_on date)")
         cursor.close()
 
     def select(self):
         """
         Gets all rows from the database
-        Each row contains: name, street, city, state, zipcode, hours, phone, rating, review, date
+        Each row contains: name, street, city, state, zipcode, hours, phone, rating, review, foodtype, date
         :return: List of lists containing all rows of database
         """
         connection = sqlite3.connect(DB_FILE)
@@ -37,7 +37,7 @@ class model(Model):
         cursor.execute("SELECT * FROM cartlist")
         return cursor.fetchall()
 
-    def insert(self, name, street, city, state, zipcode, hours, phone, rating, review):
+    def insert(self, name, street, city, state, zipcode, hours, phone, rating, review, foodtype):
         """
         Inserts entry into database
         :param name: String
@@ -49,17 +49,18 @@ class model(Model):
         :param phone: String
         :param rating: String
         :param review: String
+        :param foodtype: String
         :return: True
         :raises: Database errors on connection and insertion
         """
         params = {'name':name, 'street':street, 'city':city, 'state':state,
                 'zipcode':zipcode, 'hours':hours, 'phone':phone, 'rating':rating,
-                'review':review, 'date':date.today()}
+                'review':review, 'foodtype':foodtype, 'date':date.today()}
         connection = sqlite3.connect(DB_FILE)
         cursor = connection.cursor()
         cursor.execute(
-                "insert into cartlist (name, street, city, state, zipcode, hours, phone, rating, review, posted_on)"
-                "VALUES (:name, :street, :city, :state, :zipcode, :hours, :phone, :rating, :review, :date)", params)
+                "insert into cartlist (name, street, city, state, zipcode, hours, phone, rating, review, foodtype, posted_on)"
+                "VALUES (:name, :street, :city, :state, :zipcode, :hours, :phone, :rating, :review, :foodtype, :date)", params)
 
         connection.commit()
         cursor.close()

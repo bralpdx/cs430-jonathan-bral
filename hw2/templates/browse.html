@@ -4,7 +4,11 @@
     {% for entry in entries %}
         <p class="entry">
 	<p>
-		{{ entry.name }}
+	    {{ entry.name }}
+	    <div>
+	        <span>Type Of Food</span>
+		<br>{{ entry.foodtype }}
+	    </div>
 	</p>
 	<div>
 	    <span>Address</span>

@@ -14,5 +14,5 @@ class Submit(MethodView):
                 request.form['city'], request.form['state'],
                 request.form['zipcode'], request.form['hours'],
                 request.form['phone'], request.form['rating'],
-                request.form['review'])
+                request.form['review'], request.form['foodtype'])
         return redirect(url_for('form'))
