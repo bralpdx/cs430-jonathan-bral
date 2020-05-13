@@ -1,0 +1,26 @@
+# Specifies Ubuntu 18.04 as the base image
+FROM ubuntu:18.04
+
+# Specifies maintainer name and email
+MAINTAINER Jonathan Bral "jonbral@pdx.edu"
+
+# From wu4f repo "apt-get update and install
+# Python's package manager"
+RUN apt-get update -y
+RUN apt-get install -y python-pip
+
+# Copies the contents of the current directory
+# into the containers directory
+COPY . /app
+
+# Sets the working directory to container directory
+WORKDIR /app
+
+# Installs required python packages
+RUN pip install -r requirements.txt
+
+# Set the program that is invoked upon container instantiation
+ENTRYPOINT ["python"]
+
+# Parameters to the program
+CMD ["app.py"]
