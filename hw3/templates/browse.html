@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Cart List</h2>
+    {% for entry in entries %}
+        <p class="entry">
+	<p>
+	    {{ entry.name }}
+	    <div>
+	        <span>Type Of Food</span>
+		<br>{{ entry.foodtype }}
+	    </div>
+	</p>
+	<div>
+	    <span>Address</span>
+	    <div id='address'>
+	    	{{ entry.street }}
+	    	{{ entry.city }}
+	    	{{ entry.state }}
+	    	{{ entry.zipcode }}
+	    </div><br>
+	    <div>
+		    Hours: {{ entry.hours }}<br>
+	    </div>
+
+	</div>
+	    <div>
+		    Phone: {{ entry.phone }}<br>
+	    </div>
+
+	    <div>
+		    <br>Rating: {{ entry.rating }}<br>
+	    </div>
+
+	    <div>
+		    <br>Review:
+		    <div class="user-review">
+		    {{ entry.review }}<br>
+		    </div>
+	    </div>
+	    <br>Date Posted {{ entry.posted_on }}
+        </p>
+    {% endfor %}
+    <form id='returnhome' action="{{ url_for('index')}}">
+	<input type=submit value='Return to homepage'>
+    </form>
+    <form id='cartsubmit' action="{{ url_for('form')}}">
+	<input type=submit value='Submit a cart'>
+    </form>
+
+{% endblock %}
