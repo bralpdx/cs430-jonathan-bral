@@ -1,0 +1,20 @@
+# Base image python version of alpine
+FROM python:alpine
+
+# Name and email of maintainer
+MAINTAINER Jonathan Bral "jonbral@pdx.edu"
+
+# Copies all files into container directory
+COPY . /app
+
+# Sets working directory to container directory
+WORKDIR /app
+
+# Installs python packages in requirements.txt
+RUN pip install --no-cache -r requirements.txt
+
+# Program invoked upon container instantiation
+ENTRYPOINT ["python"]
+
+# Parameters to the program
+CMD ["app.py"]
