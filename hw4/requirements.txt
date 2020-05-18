@@ -1,0 +1,8 @@
+# Python Web Framework
+flask
+
+# AWS Libraries
+boto3
+
+# PythonWSGI HTTP server (connects web servers such as nginx to app)
+gunicorn
