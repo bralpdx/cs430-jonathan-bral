@@ -1,0 +1,10 @@
+# python web framework
+flask
+
+# aws libs
+boto3
+
+# connects web servers to app
+gunicorn
+
+# api client
