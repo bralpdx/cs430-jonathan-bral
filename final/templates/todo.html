@@ -6,7 +6,7 @@
         <h2> To-Do List </h2>
         {% for entry in entries %}
             <div>
-                {entry.title}
+                {{ entry.title }}
             </div>
         {% endfor %}
         <form action="{{ url_for('submit') }}" method=post>
