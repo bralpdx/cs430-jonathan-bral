@@ -1,4 +1,4 @@
-class Model:
+class Model():
     def select(self):
         """
         Gets all rows from the database.

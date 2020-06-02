@@ -1,7 +1,7 @@
 from .Model import Model
 import boto3
 
-class model(Mode):
+class model(Model):
     def __init__(self):
         self.resource = boto3.resource("dynamodb", region_name="us-east-1")
         self.table = self.resource.Table("todo_list")
@@ -16,11 +16,11 @@ class model(Mode):
             creates table.
             """
             self.resource.create_table(
-                    TableName="todo_list"
+                    TableName="todo_list",
                     KeySchema=[
                         {
                             "AttributeName": "title",
-                            "keyType": "HASH"
+                            "KeyType": "HASH"
                         },
                         {
                             "AttributeName": "prio",
@@ -42,23 +42,25 @@ class model(Mode):
                         "WriteCapacityUnits": 1
                     }
                 )
-        def select(self):
-            try:
-                gbentries = self.table.scan()
-            except Exception as e:
-                return([['scan failed', '.', '.', '.']])
-            return([ [f['title'], f['desc'], f['prio']] for f in gbentries['items']])
+    def select(self):
+        try:
+            gbentries = self.table.scan()
+        except Exception as e:
+            return([['scan failed', '.', '.', '.']])
 
-        def insert(self):
-            gbitem= {
-                    'name' : name,
-                    'desc' : desc,
-                    'prio' : prio
-                }
 
-            try:
-                self.table.put_item(Item=gbitem)
-            except:
-                return False
-            
-            return True
+        return([ [f['title'], f['desc'], f['prio']] for f in gbentries['Items']])
+
+    def insert(self, title, desc, prio):
+        gbitem= {
+                'title': title,
+                'desc' : desc,
+                'prio' : prio
+            }
+
+        try:
+            self.table.put_item(Item=gbitem)
+        except:
+            return False
+        
+        return True
