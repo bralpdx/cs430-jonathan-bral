@@ -7,4 +7,6 @@ boto3
 # connects web servers to app
 gunicorn
 
-# api client
+# api client and libs it uses
+openweather
+requests

@@ -3,6 +3,9 @@ from flask.views import MethodView
 import gbmodel
 import os
 import random
+import openweather
+
+API_KEY = os.environ['OPEN_KEY']
 
 class Todo(MethodView):
     def get(self):

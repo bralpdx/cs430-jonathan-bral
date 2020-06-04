@@ -4,6 +4,9 @@
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css')}}">
     <body>
         <h2> INDEX </h2>
+        <div> Current Weather </div>
+        <div> {{ forecast.temp }} </div>
+        <div> {{ forecast.conditions }} </div>
         <form action="{{ url_for('todo') }}">
             <input type=submit value='To-Do List'>
         </form>

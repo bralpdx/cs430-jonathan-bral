@@ -7,6 +7,8 @@
         {% for entry in entries %}
             <div>
                 {{ entry.title }}
+                {{ entry.desc }}
+                {{ entry.prio }}
             </div>
         {% endfor %}
         <form action="{{ url_for('submit') }}" method=post>
