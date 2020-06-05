@@ -9,4 +9,6 @@ gunicorn
 
 # api client and libs it uses
 openweather
+# geocoder api to retrieve user coordinates
+geocoder
 requests
