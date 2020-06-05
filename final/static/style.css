@@ -24,6 +24,17 @@
     */
 }
 
+.todo-image {
+    background-image: url('backgrounds/index-bg.jpg');
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
 /* League */
 @font-face {
     font-family: 'League Gothic';
@@ -103,4 +114,24 @@
 
 .todo-button:hover {
     opacity: 0.5;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 100vh;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 10px;
+    background-color: #424242;
+}
+
+.task-container {
+    text-align: center;
+    padding: 15px, 0;
+    font-family: 'raleway';
+    font-size: 20px;
+}
+
+.task {
+    grid-column: 1 / 2;
 }
