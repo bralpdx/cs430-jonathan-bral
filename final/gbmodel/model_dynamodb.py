@@ -1,5 +1,6 @@
 from .Model import Model
 import boto3
+from botocore.exceptions import ClientError
 
 class model(Model):
     def __init__(self):
@@ -64,3 +65,16 @@ class model(Model):
             return False
         
         return True
+
+    def delete_task(self, title, prio):
+        try:
+            response = self.table.delete_item(
+                Key={
+                    'title' : title,
+                    'prio' : prio
+                }
+            )
+        except ClientError as e:
+            raise
+        else:
+            return response

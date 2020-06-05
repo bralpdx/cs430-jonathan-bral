@@ -5,11 +5,16 @@
     <body>
         <h2> To-Do List </h2>
         {% for entry in entries %}
+        <form action="{{ url_for('delete') }}" method=post>
             <div>
                 {{ entry.title }}
                 {{ entry.desc }}
                 {{ entry.prio }}
+                <input type=hidden name=title value="{{ entry.title }}">
+                <input type=hidden name=prio value="{{ entry.prio }}">
+                <input type=submit value="Complete">
             </div>
+        </form>
         {% endfor %}
         <form action="{{ url_for('submit') }}" method=post>
             <p> Title: <input type=text name=title> </p>

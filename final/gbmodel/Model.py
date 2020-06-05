@@ -15,3 +15,11 @@ class Model():
         :param prio: String
         """
         pass
+
+    def delete_task(self, title, prio):
+        """
+        Deletes individual entry from database.
+        :param title: String
+        :param prio: String
+        """
+        pass
