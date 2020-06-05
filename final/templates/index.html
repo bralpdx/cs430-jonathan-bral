@@ -5,11 +5,11 @@
     <body class="welcome-page">
         <div class="welcome-image"></div>
         <div class="standard-text"> Current Weather 
-            <div> {{ forecast.temp }} &deg;F</div>
+            <div> {{ forecast.temp }} F</div>
             <div> {{ forecast.conditions }} </div>
+            <form action="{{ url_for('todo') }}">
+                <button class="todo-button"  type=submit>To-Do List</button>
+            </form>
         </div>
-        <form class="todo-button" action="{{ url_for('todo') }}">
-            <input type=submit value='To-Do List'>
-        </form>
     </body>
 </html>
