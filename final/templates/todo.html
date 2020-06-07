@@ -6,37 +6,45 @@
         <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css')}}">
     <head>
     <body>
-        <div class="todo-image">
-            <h2> To-Do List </h2>
-            {% for entry in entries %}
-            <form class="grid-container" action="{{ url_for('delete') }}" method=post>
-                <div class="task-container">
-                    {{ entry.title }}
-                    {{ entry.desc }}
-                    {{ entry.prio }}
-                    <input type=hidden name=title value="{{ entry.title }}">
-                    <input type=hidden name=prio value="{{ entry.prio }}">
-                    <input type=submit value="Complete">
+        <div class="bg-container">
+            <div class="todo-container">
+
+                <h2 class="banner"> To-Do List </h2>
+                <div class="form-container">
+                {% for entry in entries %}
+                <form action="{{ url_for('delete') }}" method=post>
+                    <div class="task">
+                        <h3>{{ entry.title }}</h3>
+                        <p>{{ entry.desc }}</p>
+                        <p>{{ entry.prio }}</p>
+                        <input type=hidden name=title value="{{ entry.title }}">
+                        <input type=hidden name=prio value="{{ entry.prio }}">
+                        <input class="comp-btn" type=submit value="Complete">
+                    </div>
+                </form>
+                {% endfor %}
+
+                    <form action="{{ url_for('submit') }}" method=post>
+                        <p><input type=text name=title placeholder="Title..."> </p>
+                        <p><input type=text name=desc placeholder="Description..."> </p>
+                        <p>
+                            <select name=prio> 
+                                <option value="" selected="selected">Priority</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </p>
+                        <p> <input class="form-btn" type=submit value=Submit> </p>
+                    </form>
+                    <form action="{{ url_for('index') }}">
+                        <input class="form-btn" type=submit value='Return'>
+                    </form>
                 </div>
-            </form>
-            {% endfor %}
-            <form action="{{ url_for('submit') }}" method=post>
-                <p> Title: <input type=text name=title> </p>
-                <p> Description: <input type=text name=desc> </p>
-                <p> Priority: 
-                    <select name=prio> 
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                </p>
-                <p> <input type=submit value=Submit> </p>
-            </form>
-            <form action="{{ url_for('index') }}">
-                <input type=submit value='Return'>
-            </form>
+
+            </div>
         </div>
     </body>
 </html>

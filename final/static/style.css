@@ -24,15 +24,35 @@
     */
 }
 
-.todo-image {
-    background-image: url('backgrounds/index-bg.jpg');
+.bg-container {
+    background: url('backgrounds/todo-bg.jpg');
+    min-height: 100%;
+    min-width: 1024px;
+
+    width: 100%;
+    height: auto;
 
     position: fixed;
     top: 0;
     left: 0;
+}
 
-    min-width: 100vw;
-    min-height: 100vh;
+.todo-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(66, 66, 66, 0.5);
+
+    font-family: 'raleway';
+    +box-shadow(0 4px 16px navy)
+    width: 500px;
+    margin: 30px auto;
+    border-top: solid 8px grey;
+}
+
+.todo-container > * {
+    padding: 10px 20px;
 }
 
 /* League */
@@ -116,22 +136,59 @@
     opacity: 0.5;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-rows: 100vh;
-    align-items: center;
-    justify-items: center;
-    grid-gap: 10px;
-    background-color: #424242;
+.task-container {
+    padding: 15px, 0;
+    font-family: 'League Gothic';
+    font-size: 20px;
+    color: white;
 }
 
-.task-container {
+.banner {
     text-align: center;
-    padding: 15px, 0;
-    font-family: 'raleway';
-    font-size: 20px;
+    padding: 10px;
+    margin: 0;
+    font-size: 30px;
+    color: white;
 }
 
 .task {
-    grid-column: 1 / 2;
+    padding: 10px;
+    text-align: center;
+}
+
+.form-container {
+    padding: 20px;
+    font-size: 16px;
+    top: 25%;
+    color: #ffffff;
+}
+
+.form-btn {
+    background-color: #424242;
+    color: white;
+    border: none;
+    font-size: 20px;
+    text-shadow: 2px 2px 6px black;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.form-btn:hover {
+    opacity: 0.5;
+}
+
+.comp-btn {
+    background-color: #424242;
+    color: white;
+    border: none;
+    font-size: 12px;
+    text-shadow: 2px 2px 6px black;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.comp-btn:hover {
+    opacity: 0.5;
 }
